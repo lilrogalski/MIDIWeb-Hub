@@ -31,24 +31,26 @@ export function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
         className="relative w-full max-w-2xl max-h-full flex flex-col bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden"
         role="dialog"
         aria-modal="true"
+        aria-describedby="modal-description"
         aria-labelledby="modal-title"
       >
         <div className="flex items-center justify-between p-4 sm:p-6 border-b border-zinc-800 shrink-0">
           <h2 id="modal-title" className="text-xl font-bold text-zinc-100 flex items-center gap-2">
-            <Github className="w-6 h-6 text-emerald-500" />
+            <Github className="w-6 h-6 text-emerald-500" aria-hidden="true" />
             Submit a New Site
           </h2>
           <button 
             onClick={onClose}
             className="p-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 rounded-lg transition-colors"
             aria-label="Close modal"
+            type="button"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
         
         <div className="p-4 sm:p-6 space-y-6 text-zinc-300 overflow-y-auto">
-          <p>
+          <p id="modal-description">
             We welcome contributions from the community! To add a new WebMIDI-capable website to the directory, please submit a Pull Request to our GitHub repository.
           </p>
           
@@ -68,8 +70,21 @@ export function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
               <button 
                 onClick={copyToClipboard}
                 className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-100 transition-colors"
+                type="button"
+                aria-label={
+                  copied
+                    ? 'Site object format copied to clipboard'
+                    : 'Copy site object format to clipboard'
+                }
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? (
+                  <Check
+                    className="w-3.5 h-3.5 text-emerald-500"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                )}
                 {copied ? 'Copied!' : 'Copy'}
               </button>
             </div>
@@ -85,8 +100,9 @@ export function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
             target="_blank" 
             rel="noopener noreferrer"
             className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold rounded-lg transition-colors flex items-center gap-2"
+            aria-label="Go to the MIDIWeb Hub GitHub repository, opens in a new tab"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-5 h-5" aria-hidden="true" />
             Go to Repository
           </a>
         </div>
