@@ -51,7 +51,7 @@ export function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
         
         <div className="p-4 sm:p-6 space-y-6 text-zinc-300 overflow-y-auto">
           <p id="modal-description">
-            We welcome contributions from the community! To add a new WebMIDI-capable website to the directory, please submit a Pull Request to our GitHub repository.
+            We welcome contributions from the community! 👋 To add a new WebMIDI site to the directory, please submit a Pull Request to our GitHub repository.
           </p>
           
           <div className="space-y-4">
@@ -59,7 +59,8 @@ export function SubmitModal({ isOpen, onClose }: SubmitModalProps) {
             <ol className="list-decimal list-inside space-y-3 text-sm">
               <li>Fork the repository at <a href="https://github.com/5of12/MIDIWeb-Hub" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">github.com/5of12/MIDIWeb-Hub</a></li>
               <li>Add your site to the <code className="px-1.5 py-0.5 bg-zinc-800 text-emerald-300 rounded">src/data.ts</code> file using the format below.</li>
-              <li>Commit your changes and push to your fork.</li>
+              <li>Run <code className="px-1.5 py-0.5 bg-zinc-800 text-emerald-300 rounded">npm run format:data</code> to prettify the data!</li>
+              <li>Commit your changes and push your fork.</li>
               <li>Open a Pull Request with a brief description of the site.</li>
             </ol>
           </div>
